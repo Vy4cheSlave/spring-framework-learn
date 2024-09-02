@@ -12,7 +12,7 @@ public class App{
         //Music music = context.getBean("musicBean", Music.class);
         //MusicPlayer musicPlayer = new MusicPlayer(music);
 
-        // DE with setter
+        // DE with setter and from file
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         
         musicPlayer.playMusic();
