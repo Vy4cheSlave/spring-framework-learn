@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  app:
+    # for SELinux
+    security_opt:
+      - label:disable
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/usr/src/app
