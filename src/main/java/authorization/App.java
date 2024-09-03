@@ -12,11 +12,22 @@ public class App{
         //Music music = context.getBean("musicBean", Music.class);
         //MusicPlayer musicPlayer = new MusicPlayer(music);
 
-        // DE with setter and from file
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        // bean musicPlayer is singleton
+        MusicPlayer firstMusicPlayer = context.getBean("musicPlayerSingleton", MusicPlayer.class);
+        MusicPlayer secondMusicPlayer = context.getBean("musicPlayerSingleton", MusicPlayer.class);
+
+        System.out.println(firstMusicPlayer == secondMusicPlayer);
+        System.out.printf("%s , %s\n", firstMusicPlayer, secondMusicPlayer);
+
+        // bean musicPlayer is prototype
+        firstMusicPlayer = context.getBean("musicPlayerPrototype", MusicPlayer.class);
+        secondMusicPlayer = context.getBean("musicPlayerPrototype", MusicPlayer.class);
+
+        System.out.println(firstMusicPlayer == secondMusicPlayer);
+        System.out.printf("%s , %s\n", firstMusicPlayer, secondMusicPlayer);
         
-        musicPlayer.playMusic();
-        System.out.println(musicPlayer.getName());
-        System.out.printf("%d\n", musicPlayer.getVolume());
+        // musicPlayer.playMusic();
+        // System.out.println(musicPlayer.getName());
+        // System.out.printf("%d\n", musicPlayer.getVolume());
     }
 } 

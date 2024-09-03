@@ -15,8 +15,22 @@
         class="authorization.ClassicalMusic">
     </bean>
 
-    <bean id="musicPlayer"
+    <bean id="musicPlayerSingleton"
         class="authorization.MusicPlayer">
+        <!-- for constructor -->
+        <!-- <constructor-arg ref="musicBean"/>  -->
+        <!-- for setter  -->
+        <property name="music" ref="musicBean"/>
+        <!-- <property name="name" value="Some name"/>
+        <property name="volume" value="50"/> -->
+        <!-- from file -->
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+    </bean>
+
+    <bean id="musicPlayerPrototype"
+        class="authorization.MusicPlayer"
+        scope="prototype">
         <!-- for constructor -->
         <!-- <constructor-arg ref="musicBean"/>  -->
         <!-- for setter  -->
