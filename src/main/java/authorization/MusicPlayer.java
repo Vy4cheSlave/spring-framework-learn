@@ -1,19 +1,21 @@
 package authorization;
 
 public class MusicPlayer {
-    private Music music;
+    // private Music music;
+    private java.util.List<Music> musicList;
     private String name;
     private int volume;
 
     // IoC
-    public MusicPlayer(Music music) {
-        this.music = music;
-    }
+    // public MusicPlayer(Music music) {
+    //     this.music = music;
+    // }
 
     public MusicPlayer() {} // удаляется после определения своего конструктора
 
-    public void setMusic(Music music) {
-        this.music = music;
+    //
+    public void setMusic(java.util.List<Music> musicList) {
+        this.musicList = musicList;
     }
 
     public void setName(String name) {
@@ -33,6 +35,8 @@ public class MusicPlayer {
     }
 
     public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
+        for (Music music : musicList) {
+            System.out.println("Playing: " + music.getSong());
+        }
     }
 }
